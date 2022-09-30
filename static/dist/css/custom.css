@@ -1,0 +1,99 @@
+/* dàn layout cho cam */
+html{
+  height: 100%;
+
+}
+body{
+  height: 100%;
+}
+.container{height: 100%;}
+.h-10{height: 10%;}
+
+.bg-banner {
+  background-color: #0c5d7b !important;
+  opacity: 50%;
+}
+.cam-list{
+  border-width: 1px;
+  /* border-radius: 5px; */
+  border-color: rgb(225, 224, 224);
+  border-style: solid;
+  height: 75vh;
+}
+.cam-list-2{
+  border-width: 1px;
+  /* border-radius: 5px; */
+  border-color: rgb(47, 255, 0);
+  border-style: solid;
+  height: 75vh;
+}
+.card-1{
+  box-shadow: 1px 1px 20px rgb(253, 225, 189) inset;
+  height: 70px;
+  padding: 0px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.card-2{
+  box-shadow: 1px 1px 20px rgb(202, 255, 190) inset;
+  height: 70px;
+  padding: 0px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-left: #cecece;
+  border-style: solid;
+}
+a, a:hover, a:visited, a:active {
+  color: inherit;
+  text-decoration: none;
+ }
+.card-body{
+  padding: 0px;
+}
+.cam{
+  height: 30vh;
+}
+.cam-area{
+  height: 75vh;
+}
+.rtsp-add{
+  border:1px;
+  border-style: solid;
+  padding: 15px;
+  border-color: forestgreen;
+  border-radius: 10px;
+  margin: 15px;
+
+}
+.card-img-top{
+  width: auto;
+}
+.form-select {
+  display: inline;
+  width: auto;
+}
+.filter{
+  width: auto;
+  margin: 2px;
+}
+.navbar-light{
+  box-shadow: 0 4px 5px -2px rgba(0,0,0,.2);
+}
+.navbar-brand{
+  margin: 7px;
+}
+.bg-item-notification{
+  border:solid;
+  border-width: 1px;
+  border-color:rgb(213, 212, 212);
+}
+.col-8{
+  border:solid;
+  border-width: 1px;
+  border-color:rgb(213, 212, 212);
+}
+.cam-list-area{
+  border:solid;
+  border-width: 1px;
+  border-color:rgb(213, 212, 212);
+}

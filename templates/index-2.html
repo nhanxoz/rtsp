@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+
+    <link href="./static/dist/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="./static/dist/css/custom-2.css?v=1.33" rel="stylesheet" />
+</head>
+<header>
+    <div class="icon-name"><img src="./static/image/cctv.png" alt="" height="50%" />
+        <div>HỆ THỐNG <br> NHẬN DIỆN ĐỐI TƯỢNG</div>
+    </div>
+    <nav><span class="active"><a href="./index">TRANG CHỦ</a></span><span><a href="./object">QUẢN LÝ ĐỐI TƯỢNG</a></span><span><a href="./camera">QUẢN LÝ CAMERA</a></span></nav>
+</header>
+
+<body>
+
+
+    <main>
+        <div class="container">
+            <div class="title-page">DEEPCAM</div>
+            <div class="time" id="time"></div>
+            <div class="row-p">
+                <div class="row">
+                    <div class="camera-list-area">
+                        <div class="cam-list-child">
+                            <div class="title-camera-list">
+                                <div><i class="fa fa-video"></i></div>
+
+                                <div id="dscam">Danh sách camera</div>
+                            </div>
+                        </div>
+                        <div class="cam-list-area">
+                            <ul class="tree">
+                                <li><i class="fas fa-network-wired"></i> Phòng 1</li>
+                                <li><i class="fas fa-network-wired"></i> Phòng 2</li>
+                                <li>
+                                    <input class="tree-toggle" type="checkbox" id="tree-toggle-01" />
+                                    <label class="tree-toggle-label" for="tree-toggle-01"><i class="fas fa-network-wired"></i> Phòng 3</label>
+                                    <ul class="subtree">
+                                        <li><i class="fas fa-tv"></i> Camera 1</li>
+                                        <li><i class="fas fa-tv"></i> Camera 2</li>
+                                        <li><i class="fas fa-tv"></i> Camera 2</li>
+                                        <li><i class="fas fa-tv"></i> Camera 2</li>
+                                        <li><i class="fas fa-tv"></i> Camera 5</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <input class="tree-toggle" type="checkbox" id="tree-toggle-02" />
+                                    <label class="tree-toggle-label" for="tree-toggle-02"><i class="fas fa-network-wired"></i> Phòng 3</label>
+                                    <ul class="subtree">
+                                        <li><i class="fas fa-tv"></i> Camera 1</li>
+                                        <li><i class="fas fa-tv"></i> Camera 2</li>
+                                        <li><i class="fas fa-tv"></i> Camera 2</li>
+                                        <li><i class="fas fa-tv"></i> Camera 2</li>
+                                        <li><i class="fas fa-tv"></i> Camera 5</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <input class="tree-toggle" type="checkbox" id="tree-toggle-03" />
+                                    <label class="tree-toggle-label" for="tree-toggle-03"><i class="fas fa-network-wired"></i> Phòng 3</label>
+                                    <ul class="subtree">
+                                        <li><i class="fas fa-tv"></i> Camera 1</li>
+                                        <li><i class="fas fa-tv"></i> Camera 2</li>
+                                        <li><i class="fas fa-tv"></i> Camera 2</li>
+                                        <li><i class="fas fa-tv"></i> Camera 2</li>
+                                        <li><i class="fas fa-tv"></i> Camera 5</li>
+                                    </ul>
+                                </li>
+                                <li><i class="fas fa-network-wired"></i> Phòng 4</li>
+                            </ul>
+<style>
+i{
+    margin: 0px 10px 0px 10px;
+}
+@-webkit-keyframes slideIn {
+    0% {
+      max-height: 0;
+      opacity: 0;
+    }
+    100% {
+      max-height: 999px;
+      opacity: 1;
+    }
+  }
+  @keyframes slideIn {
+    0% {
+      max-height: 0;
+      opacity: 0;
+    }
+    100% {
+      max-height: 999px;
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes slideOut {
+    0% {
+      height: auto;
+      opacity: 1;
+    }
+    100% {
+      height: 0;
+      opacity: 0;
+    }
+  }
+  @keyframes slideOut {
+    0% {
+      height: auto;
+      opacity: 1;
+    }
+    100% {
+      height: 0;
+      opacity: 0;
+    }
+  }
+ 
+  .tree,
+  .subtree {
+    list-style-type: none;
+  }
+  .subtree {
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+    margin-bottom: 0;
+  }
+  .tree-toggle-label {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    cursor: pointer;
+  }
+  .tree-toggle-label:after {
+    display: inline-block;
+    content: "+";
+    color: #999;
+    margin-left: 8px;
+  }
+  .tree-toggle {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+  .tree-toggle:checked + .tree-toggle-label:after {
+    content: "-";
+  }
+  .tree-toggle + .tree-toggle-label + .subtree {
+    -webkit-animation-name: slideOut;
+            animation-name: slideOut;
+    -webkit-animation-duration: 0.25s;
+            animation-duration: 0.25s;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+  }
+  .tree-toggle:checked + .tree-toggle-label + .subtree {
+    -webkit-animation-name: slideIn;
+            animation-name: slideIn;
+    -webkit-animation-duration: 0.25s;
+            animation-duration: 0.25s;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+  }
+  
+  li{padding: 5px;}
+  </style>
+                        </div>
+                    </div>
+                    <div class="camera-area">
+                        <div class="row-cam">
+                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                        </div>
+                        <div class="row-cam">
+                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                        </div>
+                        <div class="row-cam">
+                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                        </div>
+                        <div class="row-cam">
+                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                        </div>
+                        <div class="row-cam">
+                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                        </div>
+                        <div class="row-cam">
+                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                        </div>
+
+
+                    </div>
+                    <div class="notification-area">
+                        <div class="noti-de-child">
+                            <div class="title-noti-detect">
+                                <div><i class="fa fa-flag"></i></div>
+                                <div>Thông báo nhận diện</div>
+                            </div>
+                        </div>
+                        <div class="cam-list-area">
+                            <div class="card-noti-parent">
+                                <div class="card-noti">
+                                    <div class="card-info">
+                                        <div class="time-lapse">14:11:12 - 14/12/2022</div>
+                                        <div class="object-name">Phạm Thanh Vi</div>
+                                        <div class="combo-1">
+                                            <div class="score">0.87</div>
+                                            <div class="cam-location">Cam 2 - P1</div>
+                                        </div>
+                                    </div>
+                                    <div class="card-image"><img src="./static/image/jisoo.png" alt="" /></div>
+
+                                </div>
+                            </div>
+                            <div class="card-noti-parent">
+                                <div class="card-noti">
+                                    <div class="card-info">
+                                        <div class="time-lapse">14:11:12 - 14/12/2022</div>
+                                        <div class="object-name">Phạm Thanh Vi</div>
+                                        <div class="combo-1">
+                                            <div class="score">0.87</div>
+                                            <div class="cam-location">Cam 2 - P1</div>
+                                        </div>
+                                    </div>
+                                    <div class="card-image"><img src="./static/image/jisoo.png" alt="" /></div>
+
+                                </div>
+                            </div>
+                            <div class="card-noti-parent">
+                                <div class="card-noti">
+                                    <div class="card-info">
+                                        <div class="time-lapse">14:11:12 - 14/12/2022</div>
+                                        <div class="object-name">Phạm Thanh Vi</div>
+                                        <div class="combo-1">
+                                            <div class="score">0.87</div>
+                                            <div class="cam-location">Cam 2 - P1</div>
+                                        </div>
+                                    </div>
+                                    <div class="card-image"><img src="./static/image/jisoo.png" alt="" /></div>
+
+                                </div>
+                            </div>
+                            <div class="card-noti-parent">
+                                <div class="card-noti">
+                                    <div class="card-info">
+                                        <div class="time-lapse">14:11:12 - 14/12/2022</div>
+                                        <div class="object-name">Phạm Thanh Vi</div>
+                                        <div class="combo-1">
+                                            <div class="score">0.87</div>
+                                            <div class="cam-location">Cam 2 - P1</div>
+                                        </div>
+                                    </div>
+                                    <div class="card-image"><img src="./static/image/jisoo.png" alt="" /></div>
+
+                                </div>
+                            </div>
+                            <div class="card-noti-parent">
+                                <div class="card-noti">
+                                    <div class="card-info">
+                                        <div class="time-lapse">14:11:12 - 14/12/2022</div>
+                                        <div class="object-name">Phạm Thanh Vi</div>
+                                        <div class="combo-1">
+                                            <div class="score">0.87</div>
+                                            <div class="cam-location">Cam 2 - P1</div>
+                                        </div>
+                                    </div>
+                                    <div class="card-image"><img src="./static/image/jisoo.png" alt="" /></div>
+
+                                </div>
+                            </div>
+                            <div class="card-noti-parent">
+                                <div class="card-noti">
+                                    <div class="card-info">
+                                        <div class="time-lapse">14:11:12 - 14/12/2022</div>
+                                        <div class="object-name">Phạm Thanh Vi</div>
+                                        <div class="combo-1">
+                                            <div class="score">0.87</div>
+                                            <div class="cam-location">Cam 2 - P1</div>
+                                        </div>
+                                    </div>
+                                    <div class="card-image"><img src="./static/image/jisoo.png" alt="" /></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+
+
+    <script src="./static/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./static/dist/js/custom.js?v=2322"></script>
+    <script src="./static/dist/js/all.min.js"></script>
+</body>
+<footer>
+    <div class="name-team">NHÓM PHÁT TRIỂN PHẦN MỀM HỌC VIỆN KỸ THUẬT QUÂN SỰ</div>
+    <div class="address-team">Địa chỉ: Số 236 Hoàng Quốc Việt, Cổ Nhuế I, Bắc Từ Liêm, Hà Nội * Tel: +8443423423
+    </div>
+    <div class="email-leader">Email: haihongphan@mta.edu.vn</div>
+</footer>
+
+</html>

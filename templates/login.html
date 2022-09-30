@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+
+    <link href="./static/dist/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="./static/dist/css/custom-2.css" rel="stylesheet" />
+</head>
+
+
+<body>
+
+
+    <main style="background: none">
+        <form class="c-login " method="POST">
+            
+            <div class="icon-login">
+                <div class="icon-login-img">
+                    <img src="./static/image/cctv.png" alt=""/>
+                </div>
+                <div class="icon-login-text">HỆ&nbsp;THỐNG NHẬN&nbsp;DIỆN&nbsp;ĐỐI&nbsp;TƯỢNG</div>
+            </div>
+            <div class="main-login">
+                <div class="username-area">
+                    <label for="username">Tên đăng nhập: </label>
+                    <input type="text" name="username" id="" value="{{request.form.username}}">
+                </div>
+                <div class="username-area">
+                    <label for="password">Mật khẩu: </label>
+                    <input type="password" name="password" id="{{request.form.password}}">
+                </div>
+                <button type="submit">Đăng nhập</button>
+            </div>
+
+
+        </form>
+    </main>
+
+
+    <script src="./static/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./static/dist/js/all.min.js"></script>
+</body>
+<footer>
+    <div class="name-team">NHÓM PHÁT TRIỂN PHẦN MỀM HỌC VIỆN KỸ THUẬT QUÂN SỰ</div>
+    <div class="address-team">Địa chỉ: Số 236 Hoàng Quốc Việt, Cổ Nhuế I, Bắc Từ Liêm, Hà Nội * Tel: +8443423423
+    </div>
+    <div class="email-leader">Email: haihongphan@mta.edu.vn</div>
+</footer>
+
+</html>

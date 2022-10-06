@@ -7,14 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang chủ</title>
 
-    <link href="./assets/dist/css/fontawesome.min.css" rel="stylesheet" />
-    <link href="./assets/dist/css/custom-2.css" rel="stylesheet" />
+    <link href="./static/dist/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="./static/dist/css/custom-2.css" rel="stylesheet" />
 </head>
 <header>
-    <div class="icon-name"><img src="./assets/image/cctv.png" alt="" height="50%" />
+    <div class="icon-name"><img src="./static/image/cctv.png" alt="" height="50%" />
         <div>HỆ THỐNG <br> NHẬN DIỆN ĐỐI TƯỢNG</div>
     </div>
-    <nav><span>TRANG CHỦ</span><span class="active">QUẢN LÝ ĐỐI TƯỢNG</span><span>QUẢN LÝ CAMERA</span></nav>
+    <nav><span><a href="./index">TRANG CHỦ</a></span><span><a href="./object">QUẢN LÝ ĐỐI TƯỢNG</a></span><span><a
+                href="./camera">QUẢN LÝ CAMERA</a></span><span class="active"><a href="./account-management">QUẢN LÝ
+                TÀI&nbsp;KHOẢN</a></span></nav>
 </header>
 
 <body>
@@ -38,136 +40,21 @@
                             </div>
                             <div class="container-table">
                                 <div class="table-result" style="overflow-x: hidden; height: 55vh;">
-                                    <div class="result-box">
-                                        <div class="result-b">24353123</div>
+                                    {% for user in users%}
+                                    <div class="result-box" id="{{user[0]}}" name="{{user[1]}}"
+                                        password="{{user[2]*'*'}}" isadmin="{{'yes' if user[3]=='1' else 'no'}}"
+                                        onclick="changeDetail('{{user[0]}}','{{user[1]}}', '{{user[2]*'*'}}', '{{user[3]}}')">
+                                        <div class="result-b result-id">{{user[0]}}</div>
                                         <div class="result-b">
-                                            gogigasưqerqwerqwer
+                                            {{user[1]}}
                                         </div>
                                         <div class="result-b">
-                                            *********************
+                                            {{user[2]*'*'}}
                                         </div>
-                                        <div class="result-b"><input type="checkbox" id="vehicle1" name="vehicle1"
-                                                value="Bike"></div>
+                                        <div class="result-b">{{'admin' if user[3]=='1' else 'user'}}</div>
                                     </div>
+                                    {% endfor %}
 
-                                    <div class="result-box">
-                                        <div class="result-b">24353123</div>
-                                        <div class="result-b">
-                                            gogigasưqerqwerqwer
-                                        </div>
-                                        <div class="result-b">
-                                            *********************
-                                        </div>
-                                        <div class="result-b"><input type="checkbox" id="vehicle1" name="vehicle1"
-                                                value="Bike"></div>
-                                    </div>
-
-                                    <div class="result-box">
-                                        <div class="result-b">24353123</div>
-                                        <div class="result-b">
-                                            gogigasưqerqwerqwer
-                                        </div>
-                                        <div class="result-b">
-                                            *********************
-                                        </div>
-                                        <div class="result-b"><input type="checkbox" id="vehicle1" name="vehicle1"
-                                                value="Bike"></div>
-                                    </div>
-
-                                    <div class="result-box">
-                                        <div class="result-b">24353123</div>
-                                        <div class="result-b">
-                                            gogigasưqerqwerqwer
-                                        </div>
-                                        <div class="result-b">
-                                            *********************
-                                        </div>
-                                        <div class="result-b"><input type="checkbox" id="vehicle1" name="vehicle1"
-                                                value="Bike"></div>
-                                    </div>
-
-                                    <div class="result-box">
-                                        <div class="result-b">24353123</div>
-                                        <div class="result-b">
-                                            gogigasưqerqwerqwer
-                                        </div>
-                                        <div class="result-b">
-                                            *********************
-                                        </div>
-                                        <div class="result-b"><input type="checkbox" id="vehicle1" name="vehicle1"
-                                                value="Bike"></div>
-                                    </div>
-
-                                    <div class="result-box">
-                                        <div class="result-b">24353123</div>
-                                        <div class="result-b">
-                                            gogigasưqerqwerqwer
-                                        </div>
-                                        <div class="result-b">
-                                            *********************
-                                        </div>
-                                        <div class="result-b"><input type="checkbox" id="vehicle1" name="vehicle1"
-                                                value="Bike"></div>
-                                    </div>
-
-                                    <div class="result-box">
-                                        <div class="result-b">24353123</div>
-                                        <div class="result-b">
-                                            gogigasưqerqwerqwer
-                                        </div>
-                                        <div class="result-b">
-                                            *********************
-                                        </div>
-                                        <div class="result-b"><input type="checkbox" checked disabled></div>
-                                    </div>
-
-                                    <div class="result-box">
-                                        <div class="result-b">24353123</div>
-                                        <div class="result-b">
-                                            gogigasưqerqwerqwer
-                                        </div>
-                                        <div class="result-b">
-                                            *********************
-                                        </div>
-                                        <div class="result-b"><input type="checkbox" id="vehicle1" name="vehicle1"
-                                                value="Bike"></div>
-                                    </div>
-
-                                    <div class="result-box">
-                                        <div class="result-b">24353123</div>
-                                        <div class="result-b">
-                                            gogigasưqerqwerqwer
-                                        </div>
-                                        <div class="result-b">
-                                            *********************
-                                        </div>
-                                        <div class="result-b"><input type="checkbox" id="vehicle1" name="vehicle1"
-                                                value="Bike"></div>
-                                    </div>
-
-                                    <div class="result-box">
-                                        <div class="result-b">24353123</div>
-                                        <div class="result-b">
-                                            gogigasưqerqwerqwer
-                                        </div>
-                                        <div class="result-b">
-                                            *********************
-                                        </div>
-                                        <div class="result-b"><input type="checkbox" id="vehicle1" name="vehicle1"
-                                                value="Bike"></div>
-                                    </div>
-
-                                    <div class="result-box">
-                                        <div class="result-b">24353123</div>
-                                        <div class="result-b">
-                                            gogigasưqerqwerqwer
-                                        </div>
-                                        <div class="result-b">
-                                            *********************
-                                        </div>
-                                        <div class="result-b"><input type="checkbox" id="vehicle1" name="vehicle1"
-                                                value="Bike"></div>
-                                    </div>
 
                                 </div>
                             </div>
@@ -184,46 +71,105 @@
                         <div class="object-detail">
 
                             <div class="combo-2">
-                                
+
 
                                 <div class="general-info">
-                                    <div class="name-infor">gigogas</div>
-                                    <div class="ID">ID: 293023423</div>
+                                    <div class="name-infor" id="name-infor"></div>
+                                    <div class="ID" id="user-id">ID: </div>
                                 </div>
                             </div>
                             <div class="combo-3">
-                                <div class="date-of-birth">Password: ********** <i class="fa fa-eye"></i></div>
-                                <div class="info-1">NewPassword: <input type='password'></div>
-                                <div class="info-2">IsAdmin: <input type='checkbox'></div>
+                                <div class="date-of-birth" id="password">Password: ********** <i class="fa fa-eye"></i>
+                                </div>
+                                <div class="info-1">NewPassword: <input type='password' id="newpass"></div>
+                                <div class="info-2">IsAdmin: <input type='checkbox' id="newrole"></div>
 
                             </div>
                             <div class="combo-4">
-                                <button>Sửa</button>
-                                <button>Xóa</button>
+                                <button onclick="submitChange()">Sửa</button>
+                                <button onclick="submitDelete()">Xóa</button>
                             </div>
                         </div>
                         <div class="cam-list-area">
-                            
+
                             <div class="combo-5">
-                                <div class="date-of-birth">Username: <br> <input type="text"></div>
-                                <div class="info-1">Password: <br> <input type='password'></div>
-                                <div class="info-2">IsAdmin: <input type='checkbox'></div>
+                                <div class="date-of-birth">Username: <br> <input type="text" id="user-create"></div>
+                                <div class="info-1">Password: <br> <input type='password' id="pass-create"></div>
+                                <div class="info-2">IsAdmin: <input type='checkbox'  id="role-create"></div>
 
                             </div>
 
                         </div>
-                        <button class="add-object">Thêm tài khoản</button>
+                        <button class="add-object" onclick="submitCreate()">Thêm tài khoản</button>
                     </div>
                 </div>
             </div>
-
-
         </div>
     </main>
+    <script>
+        function changeDetail(a, b, c, d) {
+            document.getElementById('name-infor').innerText = b;
+            document.getElementById('user-id').innerText = 'ID: ' + a;
+            document.getElementById('password').innerText = 'Password: ' + c;
 
-
-    <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/dist/js/all.min.js"></script>
+        }
+        async function submitChange() 
+            {
+                var data={
+                    name: document.getElementById('name-infor').innerText ,
+                    pass: document.getElementById('newpass').value ,
+                    role: document.getElementById('newrole').checked 
+                }
+                console.log(data)
+                const response = await fetch('/change-pass', {
+                    method: 'POST',
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    credentials: 'same-origin',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    redirect: 'follow',
+                    referrerPolicy: 'no-referrer',
+                    body: JSON.stringify(data)
+                })
+                return response.json().then(data=> { if ( confirm(data.message) ) {window.location.reload()}});
+            }
+        async function submitDelete(){
+            const response = await fetch('/del-user', {
+                    method: 'DELETE',
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    credentials: 'same-origin',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    redirect: 'follow',
+                    referrerPolicy: 'no-referrer',
+                    body: JSON.stringify({user: document.getElementById('name-infor').innerText})
+                })
+                return response.json().then(data=> { if ( confirm(data.message) ) {window.location.reload()}});
+        }
+        async function submitCreate(){
+            const response = await fetch('/create-user', {
+                    method: 'POST',
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    credentials: 'same-origin',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    redirect: 'follow',
+                    referrerPolicy: 'no-referrer',
+                    body: JSON.stringify({user: document.getElementById('user-create').value,
+                                        pass: document.getElementById('pass-create').value,
+                                        role: document.getElementById('role-create').checked})
+                })
+                return response.json().then(data=> { if ( confirm(data.message) ) {window.location.reload()}});
+        }
+    </script>
+    <script src="./static/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./static/dist/js/all.min.js"></script>
 </body>
 <footer>
     <div class="name-team">NHÓM PHÁT TRIỂN PHẦN MỀM HỌC VIỆN KỸ THUẬT QUÂN SỰ</div>

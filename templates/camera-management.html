@@ -14,7 +14,9 @@
     <div class="icon-name"><img src="./static/image/cctv.png" alt="" height="50%" />
         <div>HỆ THỐNG <br> NHẬN DIỆN ĐỐI TƯỢNG</div>
     </div>
-    <nav><span><a href="./index">TRANG CHỦ</a></span><span><a href="./object">QUẢN LÝ ĐỐI TƯỢNG</a></span><span  class="active"><a href="./camera">QUẢN LÝ CAMERA</a></span></nav>
+    <nav><span><a href="./index">TRANG CHỦ</a></span><span><a href="./object">QUẢN LÝ ĐỐI TƯỢNG</a></span><span
+            class="active"><a href="./camera">QUẢN LÝ CAMERA</a></span><span><a href="./account-management">QUẢN LÝ
+                TÀI&nbsp;KHOẢN</a></span></nav>
 </header>
 
 <body>
@@ -23,33 +25,38 @@
     <main>
         <div class="container">
             <div class="title-page">THÊM LUỒNG CAMERA</div>
-            <div class="time">14:11:12 - 14/12/2022</div>
+            <div class="time" id="time">14:11:12 - 14/12/2022</div>
             <div class="row-p">
                 <div class="row">
                     <div class="update-object">
                         <div class="finding-area-rtsp">
-                            <div>Nhập luồng RTSP: &nbsp;</div>   
-                            <input type="text"></input>
-                            <button>Check</button>
+                            <div>Nhập luồng RTSP: &nbsp;</div>
+                            <input type="text" id="rtsp"></input>
+                            <button onclick="trigger()">Check</button>
                         </div>
-                        
+
 
                         <div class="cam-infor">
                             <div class="cam-img">
-                                <img src="./static/image/cam-demo.png" alt="">
+                                <img src="./static/image/cam-demo.png" alt="" id="cam">
                             </div>
                             <div class="main-cam-infor">
                                 <div class="main-cam-infor-title">Nhập thông tin camera :</div>
                                 <div class="name-cam-insert"><label for="name">Tên camera :</label>
-                                <input type="text" name="name" id=""></div>
-                                <div class="locate-cam-insert"><label for="locate">Vị trí camera :</label>
-                                    <input type="text" name="locate" id=""></div>
-                                <textarea name="" id="" cols="20" rows="10"></textarea>
-                                <button>Lưu thông tin luồng</button>
+                                    <input type="text" name="name" id="name">
+                                </div>
+                                <div class="locate-cam-insert"><label for="locate">Khu vực camera :</label>
+                                    <input type="text" name="locate" id="locate">
+                                </div>
+                                <div class="locate-cam-insert"><label for="locate">Vị trí cụ thể :</label>
+                                    <input type="text" name="locate" id="locate">
+                                </div>
+                                <textarea name="" id="info" cols="20" rows="10"></textarea>
+                                <button onclick="save()">Lưu thông tin luồng</button>
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -60,6 +67,78 @@
 
     <script src="./static/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./static/dist/js/all.min.js"></script>
+    <script>function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            var d = today.getDate();
+            // add a zero in front of numbers<10
+            m = checkTime(m);
+            s = checkTime(s);
+            d = checkTime(d);
+            var mo = today.getMonth() + 1;
+            var y = today.getFullYear();
+            document.getElementById('time').innerHTML = d + '/' + mo + '/' + y + ' - ' + h + ":" + m + ":" + s;
+            t = setTimeout(function () {
+                startTime()
+            }, 500);
+        }
+        startTime();
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        const parse = Range.prototype.createContextualFragment.bind(document.createRange());
+        function trigger() {
+            var k = document.getElementById('rtsp').value;
+            setCookie('rtsp', k, 1);
+            var code = `<img src="/cam-test" alt="" id="cam">`
+            document.getElementById('cam').replaceWith(parse(code))
+        }
+        async function postData(url = '', data = {}) {
+
+            const response = await fetch(url, {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+
+                },
+                redirect: 'follow',
+                referrerPolicy: 'no-referrer',
+                body: JSON.stringify(data)
+            });
+            return response.json();
+        }
+
+        
+        function save() {
+            var k = document.getElementById('rtsp').value;
+            var i = document.getElementById('name').value;
+            var j = document.getElementById('locate').value;
+            var data = {
+                name: i,
+                locate: j,
+                link: k,
+            }
+            postData('/add-cam', data)
+            .then((data) => {
+                alert(data.message); 
+            });
+        }
+    </script>
 </body>
 <footer>
     <div class="name-team">NHÓM PHÁT TRIỂN PHẦN MỀM HỌC VIỆN KỸ THUẬT QUÂN SỰ</div>

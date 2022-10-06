@@ -47,7 +47,7 @@ header>nav{
     padding: 10px;
     background-color: rgba(217, 217, 217, 0.7) ;
     height: 3vh;
-    margin-right: 4vw;
+    /* margin-right: 4vw; */
 }
 header>nav>span{
     margin-top:1vh;
@@ -243,7 +243,7 @@ main>.container>.row-p>.row>.camera-area{
     flex-direction: row;
 }
 .cam{
-    width: 25%;
+    /* width: 25%; */
 }
 .cam>img{
     width: 100%;

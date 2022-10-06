@@ -8,13 +8,14 @@
     <title>Trang chủ</title>
 
     <link href="./static/dist/css/fontawesome.min.css" rel="stylesheet" />
-    <link href="./static/dist/css/custom-2.css?v=1.33" rel="stylesheet" />
+    <link href="./static/dist/css/custom-2.css?v=1.333" rel="stylesheet" />
 </head>
 <header>
     <div class="icon-name"><img src="./static/image/cctv.png" alt="" height="50%" />
         <div>HỆ THỐNG <br> NHẬN DIỆN ĐỐI TƯỢNG</div>
     </div>
-    <nav><span class="active"><a href="./index">TRANG CHỦ</a></span><span><a href="./object">QUẢN LÝ ĐỐI TƯỢNG</a></span><span><a href="./camera">QUẢN LÝ CAMERA</a></span></nav>
+    <nav><span class="active"><a href="./index">TRANG CHỦ</a></span><span><a href="./object">QUẢN LÝ ĐỐI TƯỢNG</a></span><span><a href="./camera">QUẢN LÝ CAMERA</a></span>
+        <span><a href="./account-management">QUẢN LÝ TÀI&nbsp;KHOẢN</a></span></nav>
 </header>
 
 <body>
@@ -36,42 +37,20 @@
                         </div>
                         <div class="cam-list-area">
                             <ul class="tree">
-                                <li><i class="fas fa-network-wired"></i> Phòng 1</li>
-                                <li><i class="fas fa-network-wired"></i> Phòng 2</li>
+                                {% for i in dict_loc%}
                                 <li>
-                                    <input class="tree-toggle" type="checkbox" id="tree-toggle-01" />
-                                    <label class="tree-toggle-label" for="tree-toggle-01"><i class="fas fa-network-wired"></i> Phòng 3</label>
+                                    <input class="tree-toggle" type="checkbox" id="tree-toggle-{{i}}" />
+                                    <label class="tree-toggle-label" for="tree-toggle-{{i}}"><i class="fas fa-network-wired"></i> {{i}}</label>
                                     <ul class="subtree">
-                                        <li><i class="fas fa-tv"></i> Camera 1</li>
-                                        <li><i class="fas fa-tv"></i> Camera 2</li>
-                                        <li><i class="fas fa-tv"></i> Camera 2</li>
-                                        <li><i class="fas fa-tv"></i> Camera 2</li>
-                                        <li><i class="fas fa-tv"></i> Camera 5</li>
+                                        {% for j in dict_loc[i]%}
+                                        <li onclick="change({{j[0]}})"><i class="fas fa-tv"></i> {{j[1]}}</li>
+                                        {% endfor %}
                                     </ul>
                                 </li>
-                                <li>
-                                    <input class="tree-toggle" type="checkbox" id="tree-toggle-02" />
-                                    <label class="tree-toggle-label" for="tree-toggle-02"><i class="fas fa-network-wired"></i> Phòng 3</label>
-                                    <ul class="subtree">
-                                        <li><i class="fas fa-tv"></i> Camera 1</li>
-                                        <li><i class="fas fa-tv"></i> Camera 2</li>
-                                        <li><i class="fas fa-tv"></i> Camera 2</li>
-                                        <li><i class="fas fa-tv"></i> Camera 2</li>
-                                        <li><i class="fas fa-tv"></i> Camera 5</li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <input class="tree-toggle" type="checkbox" id="tree-toggle-03" />
-                                    <label class="tree-toggle-label" for="tree-toggle-03"><i class="fas fa-network-wired"></i> Phòng 3</label>
-                                    <ul class="subtree">
-                                        <li><i class="fas fa-tv"></i> Camera 1</li>
-                                        <li><i class="fas fa-tv"></i> Camera 2</li>
-                                        <li><i class="fas fa-tv"></i> Camera 2</li>
-                                        <li><i class="fas fa-tv"></i> Camera 2</li>
-                                        <li><i class="fas fa-tv"></i> Camera 5</li>
-                                    </ul>
-                                </li>
-                                <li><i class="fas fa-network-wired"></i> Phòng 4</li>
+                                {% endfor %}
+                                
+                                
+                                
                             </ul>
 <style>
 i{
@@ -170,42 +149,27 @@ i{
                         </div>
                     </div>
                     <div class="camera-area">
+                        <!-- {% for col in range(i1 - 1) %}
                         <div class="row-cam">
-                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
-                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
-                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
-                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
+                            {% for i in range(4)%}
+                            <div class="cam"><img src="{{ url_for('video_feed', id='{}'.format(col* 4 + i)) }}" alt=""></div>
+                            
+                            {% endfor %}
                         </div>
+                        {% endfor %}
                         <div class="row-cam">
-                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
-                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
-                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
-                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
-                        </div>
-                        <div class="row-cam">
-                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
-                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
-                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
-                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
-                        </div>
-                        <div class="row-cam">
-                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
-                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
-                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
-                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
-                        </div>
-                        <div class="row-cam">
-                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
-                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
-                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
-                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
-                        </div>
-                        <div class="row-cam">
-                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
-                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
-                            <div class="cam"><img src="./static/image/cam-demo.png" alt=""></div>
-                        </div>
-
+                            {% for i in range(i2)%}
+                            <div class="cam"><img src="{{ url_for('video_feed', id='{}'.format((i1-1)*4+i)) }}" alt=""></div>
+                            
+                            {% endfor %}
+                        </div> -->
+                        
+                        
+                            
+                            <div class="cam" id="cam"><img src="" alt=""></div>
+                        
+                        
+                        
 
                     </div>
                     <div class="notification-area">
@@ -215,7 +179,7 @@ i{
                                 <div>Thông báo nhận diện</div>
                             </div>
                         </div>
-                        <div class="cam-list-area">
+                        <div class="cam-list-area" id="cam-list">
                             <div class="card-noti-parent">
                                 <div class="card-noti">
                                     <div class="card-info">
@@ -309,9 +273,18 @@ i{
         </div>
     </main>
 
-
+    <script>
+        function change(i){
+            console.log(String(i))
+            
+            parse = Range.prototype.createContextualFragment.bind(document.createRange());
+            const code_html = '<div class="cam" id="cam"><img src="/video_feed/'+i+'" alt=""></div>'
+            console.log(code_html)
+            document.getElementById("cam").replaceWith(parse(code_html))
+        }
+    </script>
     <script src="./static/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./static/dist/js/custom.js?v=2322"></script>
+    <script src="./static/dist/js/custom.js?v=2.1"></script>
     <script src="./static/dist/js/all.min.js"></script>
 </body>
 <footer>

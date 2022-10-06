@@ -14,7 +14,9 @@
     <div class="icon-name"><img src="./static/image/cctv.png" alt="" height="50%" />
         <div>HỆ THỐNG <br> NHẬN DIỆN ĐỐI TƯỢNG</div>
     </div>
-    <nav><span><a href="./index">TRANG CHỦ</a></span><span class="active"><a href="./object">QUẢN LÝ ĐỐI TƯỢNG</a></span><span ><a href="./camera">QUẢN LÝ CAMERA</a></span></nav>
+    <nav><span><a href="./index">TRANG CHỦ</a></span><span class="active"><a href="./object">QUẢN LÝ ĐỐI
+                TƯỢNG</a></span><span><a href="./camera">QUẢN LÝ CAMERA</a></span><span><a
+                href="./account-management">QUẢN LÝ TÀI&nbsp;KHOẢN</a></span></nav>
 </header>
 
 <body>
@@ -28,7 +30,7 @@
                 <div class="row">
                     <div class="list-object-manage">
                         <div class="finding-area">
-                            <div>Nội dung tìm kiếm &nbsp;</div>   
+                            <div>Nội dung tìm kiếm &nbsp;</div>
                             <input type="text"></input>
                         </div>
                         <div class="filter-area">
@@ -60,76 +62,27 @@
                             <div class="table-header">
                                 <div class="header-img">Ảnh</div>
                                 <div class="header-general-infor">Thông tin chung</div>
-                                <div class="header-checkbox"><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></div>
+                                <div class="header-checkbox"><input type="checkbox" id="vehicle1" name="vehicle1"
+                                        value="Bike"></div>
                             </div>
                             <div class="container-table">
                                 <div class="table-result">
-                                <div class="result-box">
-                                    <div class="result-img"><img src="./static/image/jisoo.png" alt="" /></div>
-                                    <div class="result-general-info">
-                                        <div class="result-name">Phạm Thanh Vi</div>
-                                        <div>ID: 29320312</div>
-                                        <div>Ngày sinh: 14/12/2000</div>
+                                    {% for person in persons%}
+                                    <div class="result-box"
+                                        onclick="getDetail('{{person[5]}}','{{person[1]}}' ,'{{person[0]}}', '{{(person[3])}}')">
+                                        <div class="result-img"><img src="{{person[5]}}" alt="" /></div>
+                                        <div class="result-general-info">
+                                            <div class="result-name">{{person[1]}}</div>
+                                            <div>ID: {{person[0]}}</div>
+                                            <div>Ngày khởi tạo: {{(person[3])}}</div>
+                                        </div>
+                                        <div class="result-checkbox"><input type="checkbox" id="{{person[0]}}"
+                                                onchange="Change('{{person[0]}}')" name="tracking"></div>
                                     </div>
-                                    <div class="result-checkbox"><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></div>
-                                </div>
-                                <div class="result-box">
-                                    <div class="result-img"><img src="./static/image/jisoo.png" alt="" /></div>
-                                    <div class="result-general-info">
-                                        <div class="result-name">Phạm Thanh Vi</div>
-                                        <div>ID: 29320312</div>
-                                        <div>Ngày sinh: 14/12/2000</div>
-                                    </div>
-                                    <div class="result-checkbox"><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></div>
-                                </div>
-                                <div class="result-box">
-                                    <div class="result-img"><img src="./static/image/jisoo.png" alt="" /></div>
-                                    <div class="result-general-info">
-                                        <div class="result-name">Phạm Thanh Vi</div>
-                                        <div>ID: 29320312</div>
-                                        <div>Ngày sinh: 14/12/2000</div>
-                                    </div>
-                                    <div class="result-checkbox"><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></div>
-                                </div>
-                                <div class="result-box">
-                                    <div class="result-img"><img src="./static/image/jisoo.png" alt="" /></div>
-                                    <div class="result-general-info">
-                                        <div class="result-name">Phạm Thanh Vi</div>
-                                        <div>ID: 29320312</div>
-                                        <div>Ngày sinh: 14/12/2000</div>
-                                    </div>
-                                    <div class="result-checkbox"><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></div>
-                                </div>
-                                <div class="result-box">
-                                    <div class="result-img"><img src="./static/image/jisoo.png" alt="" /></div>
-                                    <div class="result-general-info">
-                                        <div class="result-name">Phạm Thanh Vi</div>
-                                        <div>ID: 29320312</div>
-                                        <div>Ngày sinh: 14/12/2000</div>
-                                    </div>
-                                    <div class="result-checkbox"><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></div>
-                                </div>
-                                <div class="result-box">
-                                    <div class="result-img"><img src="./static/image/jisoo.png" alt="" /></div>
-                                    <div class="result-general-info">
-                                        <div class="result-name">Phạm Thanh Vi</div>
-                                        <div>ID: 29320312</div>
-                                        <div>Ngày sinh: 14/12/2000</div>
-                                    </div>
-                                    <div class="result-checkbox"><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></div>
-                                </div>
-                                <div class="result-box">
-                                    <div class="result-img"><img src="./static/image/jisoo.png" alt="" /></div>
-                                    <div class="result-general-info">
-                                        <div class="result-name">Phạm Thanh Vi</div>
-                                        <div>ID: 29320312</div>
-                                        <div>Ngày sinh: 14/12/2000</div>
-                                    </div>
-                                    <div class="result-checkbox"><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></div>
+                                    {% endfor %}
                                 </div>
                             </div>
-                            </div>
-                            
+
                         </div>
                     </div>
                     <div class="notification-area">
@@ -143,164 +96,148 @@
 
                             <div class="combo-2">
                                 <div class="object-img">
-                                    <img src="./static/image/jisoo.png" alt="" />
+                                    <img id="object-img" src="./static/image/jisoo.png" alt="" />
                                 </div>
 
                                 <div class="general-info">
-                                    <div class="name-infor">Phạm Thanh Vi</div>
-                                    <div class="ID">ID: 293023423</div>
+                                    <div class="name-infor" id="name-infor">-</div>
+                                    <div class="ID" id="ID">ID: </div>
                                 </div>
                             </div>
                             <div class="combo-3">
-                                <div class="date-of-birth">Ngày sinh: 14/12/2000</div>
+                                <div class="date-of-birth" id="init-time">Ngày khởi tạo: </div>
                                 <div class="info-1">Địa chỉ: Bản Nguyên - Lâm Thao - Phú Thọ</div>
                                 <div class="info-2">Địa chỉ: Sơn Dương - Lâm Thao - Phú Thọ</div>
 
                             </div>
                             <div class="combo-4">
                                 <button>Sửa</button>
-                                <button>Xóa</button>
+                                <button onclick="submitDelete()" id = 'buttonDelete'>Xóa</button>
                             </div>
                         </div>
-                        <div class="cam-list-area">
-                            <div class="card-noti-parent">
-                                <div class="card-noti">
-                                    <div class="card-info">
-                                        <div class="time-lapse">14:11:12 - 14/12/2022</div>
-
-                                        <div class="combo-1">
-                                            <div class="score">0.87</div>
-                                            <div class="cam-location">Cam 2 - P1</div>
-                                        </div>
-                                    </div>
+                        <div class="cam-list-area" id="cam-list-area">
 
 
-                                </div>
-                            </div>
-                            <div class="card-noti-parent">
-                                <div class="card-noti">
-                                    <div class="card-info">
-                                        <div class="time-lapse">14:11:12 - 14/12/2022</div>
-
-                                        <div class="combo-1">
-                                            <div class="score">0.87</div>
-                                            <div class="cam-location">Cam 2 - P1</div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                            <div class="card-noti-parent">
-                                <div class="card-noti">
-                                    <div class="card-info">
-                                        <div class="time-lapse">14:11:12 - 14/12/2022</div>
-
-                                        <div class="combo-1">
-                                            <div class="score">0.87</div>
-                                            <div class="cam-location">Cam 2 - P1</div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                            <div class="card-noti-parent">
-                                <div class="card-noti">
-                                    <div class="card-info">
-                                        <div class="time-lapse">14:11:12 - 14/12/2022</div>
-
-                                        <div class="combo-1">
-                                            <div class="score">0.87</div>
-                                            <div class="cam-location">Cam 2 - P1</div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                            <div class="card-noti-parent">
-                                <div class="card-noti">
-                                    <div class="card-info">
-                                        <div class="time-lapse">14:11:12 - 14/12/2022</div>
-
-                                        <div class="combo-1">
-                                            <div class="score">0.87</div>
-                                            <div class="cam-location">Cam 2 - P1</div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                            <div class="card-noti-parent">
-                                <div class="card-noti">
-                                    <div class="card-info">
-                                        <div class="time-lapse">14:11:12 - 14/12/2022</div>
-
-                                        <div class="combo-1">
-                                            <div class="score">0.87</div>
-                                            <div class="cam-location">Cam 2 - P1</div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                            <div class="card-noti-parent">
-                                <div class="card-noti">
-                                    <div class="card-info">
-                                        <div class="time-lapse">14:11:12 - 14/12/2022</div>
-
-                                        <div class="combo-1">
-                                            <div class="score">0.87</div>
-                                            <div class="cam-location">Cam 2 - P1</div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                            <div class="card-noti-parent">
-                                <div class="card-noti">
-                                    <div class="card-info">
-                                        <div class="time-lapse">14:11:12 - 14/12/2022</div>
-
-                                        <div class="combo-1">
-                                            <div class="score">0.87</div>
-                                            <div class="cam-location">Cam 2 - P1</div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                            <div class="card-noti-parent">
-                                <div class="card-noti">
-                                    <div class="card-info">
-                                        <div class="time-lapse">14:11:12 - 14/12/2022</div>
-
-                                        <div class="combo-1">
-                                            <div class="score">0.87</div>
-                                            <div class="cam-location">Cam 2 - P1</div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
 
                         </div>
-                        <button class="add-object">Thêm đối tượng</button>
+                        <button class="add-object" type="button" onclick="location.href='/update-object'">Thêm đối tượng</button>
                     </div>
                 </div>
             </div>
-
-
         </div>
     </main>
 
+    <script>
+        function is_recog() {
+            fetch('/is-recog', {
+                method: 'GET',
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                redirect: 'follow',
+                referrerPolicy: 'no-referrer'
+            }).then(data => data.json()).then(
+                data =>
+                    data.message.map((value, key) =>
+                        document.getElementById(String(value[0])).checked = value[4] == "1" ? true : false)
+            )
 
+        }
+        is_recog()
+        function Change(i) {
+            var data = {
+                id: i,
+                change: document.getElementById(i).checked
+            }
+            fetch('/change-status', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+
+                },
+                redirect: 'follow',
+                referrerPolicy: 'no-referrer',
+                body: JSON.stringify(data)
+
+            }).then(data => data.json()).then(data => { if (confirm(data.message)) { window.location.reload() } });
+
+        }
+        function getDetail(a, b, c, d) {
+            console.log(a, b, c, d)
+            document.getElementById('object-img').src = a;
+            document.getElementById('name-infor').innerText = b;
+            document.getElementById('ID').innerText = 'ID: ' + c;
+            document.getElementById('init-time').innerText = 'Ngày khởi tạo: ' + d
+            var parse = Range.prototype.createContextualFragment.bind(document.createRange());
+            document.getElementById('buttonDelete').replaceWith( parse(`<button onclick="submitDelete(`+c+`)" id = 'buttonDelete'>Xóa</button>`)) 
+            var z = getNotification(c);
+
+        }
+        function submitDelete(c) {
+            fetch('/delete-object', {
+                method: 'DELETE',
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+
+                },
+                redirect: 'follow',
+                referrerPolicy: 'no-referrer',
+                body: JSON.stringify({id: c})
+
+            }).then(data => data.json()).then(data => { if (confirm(data.message)) { window.location.reload() } });
+        }
+        function getNotification(c) {
+            fetch('/get-noti-of-object', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+
+                },
+                redirect: 'follow',
+                referrerPolicy: 'no-referrer',
+                body: JSON.stringify({ id: c })
+            }).then(data => data.json()).then(data => data.notification).then(data => {
+                
+                document.getElementById('cam-list-area').innerHTML=''
+                data.map((value) => {
+                    var code_html = `<div class="card-noti-parent">
+    <div class="card-noti">
+        <div class="card-info">
+            <div class="time-lapse">`+ value.time + `</div>
+            <div class="combo-1">
+                <div class="score">`+ value.score + `</div>
+                <div class="cam-location">`+ value.cam + ` - ` + value.location + `</div>
+            </div>
+        </div>
+    </div>
+</div>`
+document.getElementById('cam-list-area').innerHTML+= code_html
+                })
+            }
+            )
+
+        }
+        function renderNoti(z) {
+            console.log(z)
+            const parse = Range.prototype.createContextualFragment.bind(document.createRange());
+            for (var i in z) {
+                console.log(i)
+
+            }
+        }
+    </script>
     <script src="./static/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./static/dist/js/all.min.js"></script>
 </body>
